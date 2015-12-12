@@ -3,6 +3,20 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+    // Singleton
+    #region Singleton
+    static PlayerController _player;
+    public static PlayerController Get
+    {
+        get
+        {
+            if (_player == null)
+                _player = GameObject.FindObjectOfType<PlayerController>();
+            return _player;
+        }
+    }
+    #endregion
+
     private Rigidbody2D body;
 
     [Header("Propulseurs")]

@@ -7,14 +7,14 @@ public class AsteroidBurstForce : MonoBehaviour {
 
     [Header("Variables")]
     public float initialForce = 1.0f;
-    public GameObject target;
+    public Vector3 target;
 
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
 
         Vector2 direction;
-        direction = target.transform.position - transform.position;
+        direction = target - transform.position;
         direction.Normalize();
 
         body.AddForce(direction * initialForce);
