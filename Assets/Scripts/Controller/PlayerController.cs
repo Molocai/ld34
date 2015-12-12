@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10f)]
     public int spaceshipHealth = 10;
 
+    [Header("Zones de réparation")]
+    public List<GameObject> repairZones;
+    public GameObject activeRepairZone;
+
     // Use this for initialization
     void Start()
     {
@@ -47,12 +52,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             body.AddForceAtPosition(transform.TransformDirection(1, 0.5f, 0) * thrusterForce, bottomThruster.transform.position);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             body.AddForceAtPosition(transform.TransformDirection(1, -0.5f, 0) * thrusterForce, topThruster.transform.position);
         }
@@ -81,5 +86,18 @@ public class PlayerController : MonoBehaviour
             if (OnPlayerGetHit != null)
                 OnPlayerGetHit(spaceshipHealth, spaceshipMaxHealth);
         }
+    }
+
+    private void RandomNewRepairZone()
+    {
+        // Pick a random zone until we don't have the same as previously
+        GameObject zone;
+
+        do
+        {
+            zone = repairZones[Random.Range(0, repairZones.Count)];
+        } while (zone == activeRepairZone);
+
+        activeRepairZone = zone;
     }
 }
