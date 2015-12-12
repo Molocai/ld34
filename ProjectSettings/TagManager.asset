@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - ScrTrR
-  - ScrTrL
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,16 +13,16 @@ TagManager:
   - UI
   - 
   - 
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  - 15
-  - BkG
-  - MdG
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
