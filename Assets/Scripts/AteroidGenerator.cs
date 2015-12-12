@@ -55,6 +55,11 @@ public class AteroidGenerator : MonoBehaviour {
             // Initial burst
             burst.target = randomTarget;
             burst.initialForce = Random.Range(minForce, maxForce);
+
+            // Set up autodestroy asteroid
+            AsteroidAutoDestroy ad = asteroid.GetComponent<AsteroidAutoDestroy>();
+            ad.referencePoint = randomPos;
+            ad.maxDistance = Vector3.Distance(randomPos, randomTarget);
         }
     }
 
