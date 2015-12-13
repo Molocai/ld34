@@ -151,6 +151,37 @@ PolygonCollider2D:
       - {x: 0.6635168, y: -0.6962475}
       - {x: 0.6735168, y: -0.64624757}
       - {x: 0.6135168, y: -0.60624754}
+--- !u!114 &31973896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 31973890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95944a80aba36404bace4031beb13c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlerteNiveau1: {fileID: 8300000, guid: c66cf115fdd3d254f9c15bce26dd3912, type: 3}
+  AlerteNiveau1bis: {fileID: 8300000, guid: 0be9b9e07cde3df42ba2cba6cb396cb0, type: 3}
+  AlerteNiveau2: {fileID: 8300000, guid: 0cc26839075a80d4e9d09f620bca633b, type: 3}
+  AlerteNiveau3: {fileID: 8300000, guid: 7eb3b9516a203e4498044be88aff5e3d, type: 3}
+  AlerteNiveau4: {fileID: 8300000, guid: d5e7724c4ef8d9d42a4e8580b4b90a55, type: 3}
+  AsteroidAleatoire:
+  - {fileID: 8300000, guid: 29fabcd876de7474bb70caea8297dc30, type: 3}
+  - {fileID: 8300000, guid: 3302f9f9474656048b2fe0e7bcfedb3e, type: 3}
+  - {fileID: 8300000, guid: 3ef22440a8cb96844a53de5a15ff1851, type: 3}
+  - {fileID: 8300000, guid: 6fc439530df332245af61f82b8d1345c, type: 3}
+  - {fileID: 8300000, guid: e52b22cba1f14a843a70e7a2252b3873, type: 3}
+  ReparationAleatoire:
+  - {fileID: 8300000, guid: 6009204e08c82d648bf641ca3f7960cf, type: 3}
+  - {fileID: 8300000, guid: f11afc1df350c80478a31b3e4f00b406, type: 3}
+  - {fileID: 8300000, guid: c1009dfcfb6ac8e469867ea5f865fc91, type: 3}
+  RogerSoundAleatoire:
+  - {fileID: 8300000, guid: 42b727cca8852384aa1050b3db379bd0, type: 3}
+  - {fileID: 8300000, guid: 9719ad3a884571144ab17ad394a971aa, type: 3}
+  - {fileID: 8300000, guid: f314229032c9bbb4a90495ea0b7fd414, type: 3}
+  - {fileID: 8300000, guid: bfca915a7cfab6d4a8f5466fb2a25299, type: 3}
 --- !u!1001 &56136863
 Prefab:
   m_ObjectHideFlags: 0

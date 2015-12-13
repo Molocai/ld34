@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 95944a80aba36404bace4031beb13c1d
+timeCreated: 1449968630
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - AlerteNiveau1: {fileID: 8300000, guid: c66cf115fdd3d254f9c15bce26dd3912, type: 3}
+  - AlerteNiveau1bis: {fileID: 8300000, guid: 0be9b9e07cde3df42ba2cba6cb396cb0, type: 3}
+  - AlerteNiveau2: {instanceID: 0}
+  - AlerteNiveau3: {instanceID: 0}
+  - AlerteNiveau4: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
