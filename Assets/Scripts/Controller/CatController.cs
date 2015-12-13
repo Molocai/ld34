@@ -5,7 +5,6 @@ public class CatController : MonoBehaviour
 {
     private Rigidbody2D body;
 
-    private float lastTimeRogerMiaou = 0.0f;
     public float tempsEntreRogerMiaou;
     private float nextMiaou = 0.0f;
     public float magnitudeMiaou = 1.5f;

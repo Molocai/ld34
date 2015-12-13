@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     [Header("Zones de réparation")]
     public List<GameObject> repairZones;
     public GameObject activeRepairZone;
+    private GameObject previousRepairZone;
     public float minRepairZonePopTime;
     public float maxRepairZonePopTime;
     private bool waitingForZone = false;
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R))
         {
-            activeRepairZone = null;
+            DisableActiveRepairZone();
         }
     }
 
@@ -126,14 +127,20 @@ public class PlayerController : MonoBehaviour
     {
         // Pick a random zone until we don't have the same as previously
         GameObject zone;
-
-        do
-        {
+        //do
+        //{
             zone = repairZones[Random.Range(0, repairZones.Count)];
-        } while (zone == activeRepairZone);
+        //} while (zone == previousRepairZone);
 
         activeRepairZone = zone;
         activeRepairZone.SetActive(true);
         ps.Alertes(spaceshipHealth);
+    }
+
+    public void DisableActiveRepairZone()
+    {
+        activeRepairZone.SetActive(false);
+        previousRepairZone = activeRepairZone;
+        activeRepairZone = null;
     }
 }

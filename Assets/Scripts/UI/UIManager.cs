@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour {
     void Start()
     {
         spaceshipHealthSlider = sliderGameObject.GetComponent<Slider>();
+
+        float sliderValue = (float)PlayerController.Get.spaceshipHealth / (float)PlayerController.Get.spaceshipMaxHealth;
+        spaceshipHealthSlider.value = sliderValue;
     }
 
     void Update()

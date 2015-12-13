@@ -9,6 +9,7 @@ public class RepairZoneHandler : MonoBehaviour
     private float releaseTime = 0.0f;
 
     private GameObject cat;
+    private bool alreadyInstantiatedParticles = false;
 
     // Use this for initialization
     void Update()
@@ -16,8 +17,7 @@ public class RepairZoneHandler : MonoBehaviour
         if (Time.time >= releaseTime && releaseTime != 0)
         {
             cat.GetComponent<Rigidbody2D>().isKinematic = false;
-            PlayerController.Get.activeRepairZone.SetActive(false);
-            PlayerController.Get.activeRepairZone = null;
+            PlayerController.Get.DisableActiveRepairZone();
         }
     }
 
@@ -25,11 +25,17 @@ public class RepairZoneHandler : MonoBehaviour
     {
         if (collision.gameObject.tag == "Cat")
         {
+            Debug.Log("Alert");
             cat = collision.gameObject;
             releaseTime = Time.time + stopDuration;
             collision.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            GameObject newParticles = (GameObject)Instantiate(particles[Random.Range(0, particles.Length - 1)] , transform.position, Quaternion.identity);
-            newParticles.transform.SetParent(gameObject.transform);
+            
+            if (!alreadyInstantiatedParticles)
+            {
+                GameObject newParticles = (GameObject)Instantiate(particles[Random.Range(0, particles.Length - 1)], transform.position, transform.rotation);
+                newParticles.transform.SetParent(gameObject.transform);
+                alreadyInstantiatedParticles = true;
+            }
         }
     }
 }

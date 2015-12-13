@@ -5,10 +5,12 @@ public class ParticleSystemAutoDestroy : MonoBehaviour
 {
 
     private ParticleSystem ps;
+    public float destructTimer;
 
 
     public void Start()
     {
+        Destroy(gameObject, destructTimer);
         ps = GetComponent<ParticleSystem>();
     }
 
