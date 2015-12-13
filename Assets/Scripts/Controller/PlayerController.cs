@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     public float minRepairZonePopTime;
     public float maxRepairZonePopTime;
     private bool waitingForZone = false;
-    public float nextZonePopTime = 0.0f;
+    private float nextZonePopTime = 0.0f;
 
     // Use this for initialization
     void Start()
