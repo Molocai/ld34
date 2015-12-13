@@ -4,7 +4,7 @@ using System.Collections;
 public class IntroSound : MonoBehaviour {
 
     [Header("Son de l'intro")]
-    public AudioClip sonIntro;
+
     public AudioClip Mireille;
     public AudioClip Roger;
     private AudioSource source;
