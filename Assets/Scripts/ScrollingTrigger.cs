@@ -8,10 +8,8 @@ public class ScrollingTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("In ff");
         if (other.gameObject.tag == "MainCamera")
         {
-            Debug.Log("In tr");
             if (activated && left)
             {
                 GameObject space = Instantiate(toD, new Vector3(toD.transform.position.x - 16.0f, toD.transform.position.y, toD.transform.position.z), Quaternion.identity) as GameObject;
@@ -25,7 +23,6 @@ public class ScrollingTrigger : MonoBehaviour
             }
         }
     }
-
     void OnDrawGizmos()
     {
         Color giz = Color.yellow;
