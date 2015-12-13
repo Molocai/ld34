@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour {
     void OnPlayerGetHit(int life, int max)
     {
         float sliderValue = (float)life / (float)max;
-        Debug.Log("Life: " + life + " max: " + max + " slider: " + sliderValue.ToString());
         spaceshipHealthSlider.value = sliderValue;
     }
 }

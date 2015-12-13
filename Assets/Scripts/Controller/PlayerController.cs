@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private Rigidbody2D body;
+    private PlayerSound ps;
 
     [Header("Propulseurs")]
     public GameObject topThruster;
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        ps = GetComponent<PlayerSound>();
     }
 
     void FixedUpdate()
@@ -96,6 +98,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
+            GameObject.Destroy(collision.gameObject);
+            ps.ImpactAsteroidSound();
             TakeDamage();
         }
     }
@@ -128,5 +132,6 @@ public class PlayerController : MonoBehaviour
         } while (zone == activeRepairZone);
 
         activeRepairZone = zone;
+        ps.Alertes(spaceshipHealth);
     }
 }

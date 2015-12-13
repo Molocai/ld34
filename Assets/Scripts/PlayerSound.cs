@@ -13,20 +13,23 @@ public class PlayerSound : MonoBehaviour {
 
 	[Header("Sons des Asteroides")]
 	public List<AudioClip> AsteroidAleatoire;
+    AudioClip LastUsedAsteroidSound;
 	AudioClip AsteroidSound;
 
 	[Header("Sons des Réparations")]
 	public List<AudioClip> ReparationAleatoire;
+    AudioClip LastUsedReparationSound;
 	AudioClip ReparationSound;
 
-	[Header("Sons de Roger tracté")]
+    [Header("Sons de Roger tracté")]
 	public List<AudioClip> RogerSoundAleatoire;
+    AudioClip LastUsedRogerSound;
 	AudioClip RogerSound;
 
-	private AudioSource source;
+    private AudioSource source;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		source = GetComponent<AudioSource> ();
 
 	}
@@ -61,20 +64,38 @@ public class PlayerSound : MonoBehaviour {
 	}
 	public void ImpactAsteroidSound()
 	{
-		AsteroidSound=AsteroidAleatoire[Random.Range(0, 4)];
+        do
+        {
+            AsteroidSound = AsteroidAleatoire[Random.Range(0, AsteroidAleatoire.Count)];
+        } while (AsteroidSound == LastUsedAsteroidSound);
+
+        LastUsedAsteroidSound = AsteroidSound;
+
 		source.PlayOneShot(AsteroidSound,1f);
-	}
+    }
 
 	public void ReparationSoundAleatoire()
 	{
-		ReparationSound=ReparationAleatoire[Random.Range(0, 2)];
-		source.PlayOneShot(ReparationSound,1f);
+        do
+        {
+            ReparationSound = ReparationAleatoire[Random.Range(0, ReparationAleatoire.Count)];
+        } while (ReparationSound == LastUsedReparationSound);
+
+        LastUsedReparationSound = ReparationSound;
+
+        source.PlayOneShot(ReparationSound,1f);
 	}
 
 	public void RogerTracte(float vitesseRoger)
 	{
-		RogerSound=RogerSoundAleatoire[Random.Range(0, 3)];
-		source.PlayOneShot(RogerSound,1f);
+        do
+        {
+            RogerSound = RogerSoundAleatoire[Random.Range(0, RogerSoundAleatoire.Count)];
+        } while (RogerSound == LastUsedRogerSound);
+
+        LastUsedRogerSound = RogerSound;
+
+        source.PlayOneShot(RogerSound,1f);
 	}
 
 
