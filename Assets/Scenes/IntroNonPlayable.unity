@@ -819,9 +819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c61aaee22442f459f86cd6dfadcdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camTransform: {fileID: 0}
-  shake: 0
-  shakeAmount: 0.7
+  camTransform: {fileID: 1133452375}
+  shake: 3
+  shakeAmount: 0.2
   decreaseFactor: 1
 --- !u!1001 &1888041778
 Prefab:
