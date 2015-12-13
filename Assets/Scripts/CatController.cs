@@ -22,8 +22,16 @@ public class CatController : MonoBehaviour
 
         if (Time.time >= nextMiaou && magnitude >= magnitudeMiaou)
         {
-            PlayerController.Get.ps.RogerTracte(magnitude);
+            PlayerController.Get.ps.RogerTracte();
             nextMiaou = Time.time + tempsEntreRogerMiaou;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            PlayerController.Get.ps.RogerTracte();
         }
     }
 }

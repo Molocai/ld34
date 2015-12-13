@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
     public enum ZONEVAISSEAU {
         COCKPIT,
-        HAUT,
+        NEZ,
         BAS,
         ARRIERE
     }
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour {
         ZONEVAISSEAU tmp;
         do
         {
-            tmp = (ZONEVAISSEAU)Random.Range(0, 3);
+            tmp = (ZONEVAISSEAU)Random.Range(0, 4);
         } while (tmp == lastActivatedZone);
 
         return tmp;
