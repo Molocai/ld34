@@ -821,7 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camTransform: {fileID: 1133452375}
   shake: 3
-  shakeAmount: 0.2
+  shakeAmount: 1
   decreaseFactor: 1
 --- !u!1001 &1888041778
 Prefab:
