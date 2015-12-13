@@ -12,13 +12,13 @@ public class ScrollingTrigger : MonoBehaviour
         {
             if (activated && left)
             {
-                GameObject space = Instantiate(toD, new Vector3(toD.transform.position.x - 16.0f, toD.transform.position.y, toD.transform.position.z), Quaternion.identity) as GameObject;
+                Instantiate(toD, new Vector3(toD.transform.position.x - 16.0f, toD.transform.position.y, toD.transform.position.z), Quaternion.identity);
                 
                 activated = false;
             }
             else if (activated && right)
             {
-                GameObject space = Instantiate(toD, new Vector3(toD.transform.position.x + 16.0f, toD.transform.position.y, toD.transform.position.z), Quaternion.identity) as GameObject;
+                Instantiate(toD, new Vector3(toD.transform.position.x + 16.0f, toD.transform.position.y, toD.transform.position.z), Quaternion.identity);
                 activated = false;
             }
         }

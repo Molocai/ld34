@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class UseLineRenderer : MonoBehaviour {
 
-	public static bool brokenChainsHolderCreated = false;	//used to save chains which aren't connected to another chain
+	public static bool brokenChainsHolderCreated = true;	//used to save chains which aren't connected to another chain
 
 	//used to set linerenderer's material and width
 	private LineRenderer lineRend;
