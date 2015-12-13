@@ -5,13 +5,5 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/testSceneAug.unity
-  - enabled: 0
-    path: Assets/Scenes/mainMenu.unity
-  - enabled: 0
-    path: Assets/Scenes/testScene.unity
-  - enabled: 0
-    path: Assets/Scenes/testSceneN.unity
   - enabled: 1
     path: Assets/Scenes/testALL_Titouan.unity

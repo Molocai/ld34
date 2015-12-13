@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public Dictionary<ZONEVAISSEAU, GameObject> availableZones;
+    [Header("Cockpit, nez, bas, arrière")]
     public List<GameObject> zonesOnShip;
 
     private ZONEVAISSEAU lastActivatedZone;

@@ -32,6 +32,7 @@ public class CatController : MonoBehaviour
         if (collision.gameObject.tag == "Asteroid")
         {
             PlayerController.Get.ps.RogerTracte();
+            collision.gameObject.GetComponent<AsteroidController>().Explode();
         }
     }
 }
