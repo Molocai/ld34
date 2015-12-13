@@ -8,13 +8,22 @@ public class UIManager : MonoBehaviour {
     public GameObject sliderGameObject;
 
     private Slider spaceshipHealthSlider;
+    private float w, h;
 
     void Start()
     {
         spaceshipHealthSlider = sliderGameObject.GetComponent<Slider>();
     }
 
-    void OnEnable()
+    void Update()
+    {
+        w = Screen.width;
+        h = Screen.height;
+
+        sliderGameObject.GetComponent<RectTransform>().position = new Vector3(6.0f * w / 7.0f, h / 10.0f, 0.5f);
+        sliderGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(w / 8.0f, h / 15.0f);
+    }
+        void OnEnable()
     {
         PlayerController.OnPlayerGetHit += OnPlayerGetHit;
     }
