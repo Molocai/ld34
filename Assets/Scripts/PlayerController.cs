@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
-            GameObject.Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<AsteroidController>().Explode();
             ps.ImpactAsteroidSound();
             TakeDamage();
         }

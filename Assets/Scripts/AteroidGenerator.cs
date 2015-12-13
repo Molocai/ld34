@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AteroidGenerator : MonoBehaviour {
 
     [Header("Variables")]
-    public GameObject asteroidPrefab;
+    public List<GameObject> asteroidPrefab;
     public float asteroidPopInterval;
 
     [Header("Zone d'apparition")]
@@ -19,6 +20,8 @@ public class AteroidGenerator : MonoBehaviour {
     [Header("Force des astéroïdes")]
     public float minForce = 0;
     public float maxForce;
+    public float minRotationForce;
+    public float maxRotationForce;
 
     private float nextTime;
 
@@ -39,9 +42,10 @@ public class AteroidGenerator : MonoBehaviour {
             Vector3 randomPos = new Vector3();
             randomPos.x = Random.Range(transform.position.x - maxPopWidth / 2, transform.position.x + maxPopWidth / 2);
             randomPos.y = Random.Range(transform.position.y - maxPopHeight / 2, transform.position.y + maxPopHeight / 2);
+            randomPos.z = 7.5f;
 
             // Instantiate asteroid
-            GameObject asteroid = (GameObject)GameObject.Instantiate(asteroidPrefab, randomPos, Quaternion.identity);
+            GameObject asteroid = (GameObject)GameObject.Instantiate(asteroidPrefab[Random.Range(0, asteroidPrefab.Count)], randomPos, Quaternion.identity);
             AsteroidBurstForce burst = asteroid.GetComponent<AsteroidBurstForce>();
 
             // Random destination
@@ -55,6 +59,7 @@ public class AteroidGenerator : MonoBehaviour {
             // Initial burst
             burst.target = randomTarget;
             burst.initialForce = Random.Range(minForce, maxForce);
+            burst.initialRotationForce = Random.Range(minRotationForce, maxRotationForce);
 
             // Set up autodestroy asteroid
             AsteroidAutoDestroy ad = asteroid.GetComponent<AsteroidAutoDestroy>();

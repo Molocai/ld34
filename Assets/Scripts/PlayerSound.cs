@@ -86,7 +86,7 @@ public class PlayerSound : MonoBehaviour {
         source.PlayOneShot(ReparationSound,1f);
 	}
 
-	public void RogerTracte(float vitesseRoger)
+	public void RogerTracte()
 	{
         do
         {

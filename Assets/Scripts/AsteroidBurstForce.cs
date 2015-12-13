@@ -7,6 +7,7 @@ public class AsteroidBurstForce : MonoBehaviour {
 
     [Header("Variables")]
     public float initialForce = 1.0f;
+    public float initialRotationForce = 1.0f;
     public Vector3 target;
 
     // Use this for initialization
@@ -18,5 +19,6 @@ public class AsteroidBurstForce : MonoBehaviour {
         direction.Normalize();
 
         body.AddForce(direction * initialForce);
+        body.AddTorque(initialRotationForce);
     }
 }
