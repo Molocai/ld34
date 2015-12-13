@@ -3,10 +3,12 @@ using System.Collections;
 
 public class CatController : MonoBehaviour
 {
-
-    public Vector3 velocity;
-
     private Rigidbody2D body;
+
+    private float lastTimeRogerMiaou = 0.0f;
+    public float tempsEntreRogerMiaou;
+    private float nextMiaou = 0.0f;
+    public float magnitudeMiaou = 1.5f;
 
     // Use this for initialization
     void Start()
@@ -17,7 +19,12 @@ public class CatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = body.velocity;
-        velocity *= 2;
+        float magnitude = body.velocity.magnitude;
+
+        if (Time.time >= nextMiaou && magnitude >= magnitudeMiaou)
+        {
+            PlayerController.Get.ps.RogerTracte(magnitude);
+            nextMiaou = Time.time + tempsEntreRogerMiaou;
+        }
     }
 }

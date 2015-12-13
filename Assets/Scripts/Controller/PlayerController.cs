@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private Rigidbody2D body;
-    private PlayerSound ps;
+    public PlayerSound ps;
 
     [Header("Propulseurs")]
     public GameObject topThruster;
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public float maxRepairZonePopTime;
     private bool waitingForZone = false;
     private float nextZonePopTime = 0.0f;
+    public GameObject particles;
 
     // Use this for initialization
     void Start()
@@ -132,6 +133,7 @@ public class PlayerController : MonoBehaviour
         } while (zone == activeRepairZone);
 
         activeRepairZone = zone;
+        activeRepairZone.SetActive(true);
         ps.Alertes(spaceshipHealth);
     }
 }
