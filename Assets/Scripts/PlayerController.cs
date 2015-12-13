@@ -40,21 +40,27 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10f)]
     public int spaceshipHealth = 10;
 
-    [Header("Zones de réparation")]
-    public List<GameObject> repairZones;
-    public GameObject activeRepairZone;
-    private GameObject previousRepairZone;
-    public float minRepairZonePopTime;
-    public float maxRepairZonePopTime;
-    private bool waitingForZone = false;
-    private float nextZonePopTime = 0.0f;
-    public GameObject particles;
-
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         ps = GetComponent<PlayerSound>();
+    }
+
+    void OnEnable()
+    {
+        GameManager.OnNewZoneActivated += PlayMireilleSound;
+        RepairZone.OnNewZoneFixed += PlayFixingSound;
+    }
+
+    void PlayMireilleSound()
+    {
+        ps.Alertes(spaceshipHealth);
+    }
+
+    void PlayFixingSound()
+    {
+        ps.ReparationSoundAleatoire();
     }
 
     void FixedUpdate()
@@ -68,31 +74,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             body.AddForceAtPosition(transform.TransformDirection(1, -0.5f, 0) * thrusterForce, topThruster.transform.position);
-        }
-    }
-
-    void Update()
-    {
-        if (activeRepairZone == null)
-        {
-            if (!waitingForZone)
-            {
-                waitingForZone = true;
-                nextZonePopTime = Time.time + Random.Range(minRepairZonePopTime, maxRepairZonePopTime);
-            }
-            else
-            {
-                if (Time.time >= nextZonePopTime)
-                {
-                    RandomNewRepairZone();
-                    waitingForZone = false;
-                }
-            }
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-            DisableActiveRepairZone();
         }
     }
 
@@ -110,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         if (spaceshipHealth - 1 == 0)
         {
-            // Die
+            // TODO: Die
         }
 
         else
@@ -121,26 +102,5 @@ public class PlayerController : MonoBehaviour
             if (OnPlayerGetHit != null)
                 OnPlayerGetHit(spaceshipHealth, spaceshipMaxHealth);
         }
-    }
-
-    private void RandomNewRepairZone()
-    {
-        // Pick a random zone until we don't have the same as previously
-        GameObject zone;
-        //do
-        //{
-            zone = repairZones[Random.Range(0, repairZones.Count)];
-        //} while (zone == previousRepairZone);
-
-        activeRepairZone = zone;
-        activeRepairZone.SetActive(true);
-        ps.Alertes(spaceshipHealth);
-    }
-
-    public void DisableActiveRepairZone()
-    {
-        activeRepairZone.SetActive(false);
-        previousRepairZone = activeRepairZone;
-        activeRepairZone = null;
     }
 }
