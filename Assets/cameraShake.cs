@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 public class cameraShake : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class cameraShake : MonoBehaviour
         {
             Shake();
         }
-    }*/
+    }
 
        
 
@@ -29,7 +29,7 @@ public class cameraShake : MonoBehaviour
             originRotation.x + Random.Range(-shake_intensity, shake_intensity) * .2f,
             originRotation.y + Random.Range(-shake_intensity, shake_intensity) * .2f,
             originRotation.z + Random.Range(-shake_intensity, shake_intensity) * .2f,
-            originRotation.w + Random.Range(-shake_intensity, shake_intensity) * .2f);*/
+            originRotation.w + Random.Range(-shake_intensity, shake_intensity) * .2f);
             shake_intensity -= shake_decay;
         }
 
@@ -56,5 +56,56 @@ public class cameraShake : MonoBehaviour
         //shake_intensity = .03f;
       // shake_decay = 0.002f;
     }
-}
+}*/
 
+
+
+
+
+
+using UnityEngine;
+using System.Collections;
+
+public class cameraShake : MonoBehaviour
+{
+    // Transform of the camera to shake. Grabs the gameObject's transform
+    // if null.
+    public Transform camTransform;
+
+    // How long the object should shake for.
+    public float shake = 0f;
+
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    public float shakeAmount = 0.7f;
+    public float decreaseFactor = 1.0f;
+
+    Vector3 originalPos;
+
+    void Awake()
+    {
+        if (camTransform == null)
+        {
+            camTransform = GetComponent(typeof(Transform)) as Transform;
+        }
+    }
+
+    void OnEnable()
+    {
+        originalPos = camTransform.localPosition;
+    }
+
+    void Update()
+    {
+        if (shake > 0)
+        {
+            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+
+            shake -= Time.deltaTime * decreaseFactor;
+        }
+        else
+        {
+            shake = 0f;
+            camTransform.localPosition = originalPos;
+        }
+    }
+}

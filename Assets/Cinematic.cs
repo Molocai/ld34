@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class Cinematic : MonoBehaviour {
-public AudioClip cinematic;
 public MovieTexture movTexture;
-
-	// Use this for initialization
-	void Start () {
+ public string IntroNonPlayable;
+    // Use this for initialization
+    void Start () {
 
         GetComponent<Renderer>().material.mainTexture = movTexture;
         movTexture.Play();
+        StartCoroutine("waitForMovieEnd");
 
 
     }
@@ -19,4 +21,33 @@ public MovieTexture movTexture;
 	void Update () {
 	
 	}
+
+
+    public void PlayIntro()
+    {
+        SceneManager.LoadScene(IntroNonPlayable);
+
+    }
+
+
+
+    IEnumerator waitForMovieEnd()
+    {
+
+        while (movTexture.isPlaying) // while the movie is playing
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        // after movie is not playing / has stopped.
+        onMovieEnded();
+    }
+
+    void onMovieEnded()
+    {
+        Debug.Log("Movie Ended!");
+        PlayIntro();
+       // Application.LoadLevel(1);
+    }
+
+
 }

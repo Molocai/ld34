@@ -474,15 +474,6 @@ MonoBehaviour:
   thrusterForce: 30
   spaceshipMaxHealth: 10
   spaceshipHealth: 3
-  repairZones:
-  - {fileID: 0}
-  - {fileID: 1321070287}
-  - {fileID: 0}
-  - {fileID: 0}
-  activeRepairZone: {fileID: 0}
-  minRepairZonePopTime: 1
-  maxRepairZonePopTime: 3
-  particles: {fileID: 127958, guid: e32416e08e3062648950555c8b36b570, type: 2}
 --- !u!50 &911875727
 Rigidbody2D:
   serializedVersion: 2
@@ -688,12 +679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f1028dfee2cc348a7f452b703e055d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles:
-  - {fileID: 158608, guid: d8fec45946a0a0144ab02e6dbaad0ae3, type: 2}
-  - {fileID: 183034, guid: b79a46d189aff5d428136faa27565a87, type: 2}
-  - {fileID: 171834, guid: b80d46cd7a8e00f45833181a2804fe51, type: 2}
-  - {fileID: 145200, guid: c32c55f8fcdfbd94fbdfb68da68018ce, type: 2}
-  stopDuration: 2.2
 --- !u!58 &1321070289
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -834,8 +819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c61aaee22442f459f86cd6dfadcdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shake_decay: 0.05
-  shake_intensity: 5
+  camTransform: {fileID: 0}
+  shake: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1001 &1888041778
 Prefab:
   m_ObjectHideFlags: 0
