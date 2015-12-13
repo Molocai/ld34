@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour
     [Header("Zones de réparation")]
     public List<GameObject> repairZones;
     public GameObject activeRepairZone;
+    public float minRepairZonePopTime;
+    public float maxRepairZonePopTime;
+    private bool waitingForZone = false;
+    public float nextZonePopTime = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -60,6 +64,31 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             body.AddForceAtPosition(transform.TransformDirection(1, -0.5f, 0) * thrusterForce, topThruster.transform.position);
+        }
+    }
+
+    void Update()
+    {
+        if (activeRepairZone == null)
+        {
+            if (!waitingForZone)
+            {
+                waitingForZone = true;
+                nextZonePopTime = Time.time + Random.Range(minRepairZonePopTime, maxRepairZonePopTime);
+            }
+            else
+            {
+                if (Time.time >= nextZonePopTime)
+                {
+                    RandomNewRepairZone();
+                    waitingForZone = false;
+                }
+            }
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            activeRepairZone = null;
         }
     }
 
