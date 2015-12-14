@@ -18,6 +18,9 @@ public class EndScreenController : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable () {
         activateTime = Time.time;
+
+        if (type == ENDSCREENTYPE.WIN)
+            Destroy(PlayerController.Get.gameObject);
     }
 	
 	// Update is called once per frame

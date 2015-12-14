@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour {
         scoreTextGameObject.GetComponent<RectTransform>().position = new Vector3(5.0f * w / 7.0f, h / 10.0f, 0.5f);
         scoreTextGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(w / 8.0f, h / 15.0f);
 
-        endScoreTextGameObject.GetComponent<RectTransform>().position = new Vector3(w / 2f, 1 * h / 3f, 0.5f);
-        endScoreTextGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(w / 2f, 1 * h / 3f);
+        endScoreTextGameObject.GetComponent<RectTransform>().position = new Vector3(w / 2f, h / 5f, 0.5f);
+        endScoreTextGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(w / 2f, h / 5f);
 
         scoreText.text = GameManager.Get.formatedScore;
     }
@@ -66,7 +66,6 @@ public class UIManager : MonoBehaviour {
     {
         sliderGameObject.SetActive(false);
         scoreTextGameObject.SetActive(false);
-        DisplayLoseScreen();
     }
 
     public void DisplayLoseScreen()
@@ -76,6 +75,7 @@ public class UIManager : MonoBehaviour {
 
     public void DisplayWinScreen()
     {
+        HidePlayerInfos();
         winUIGameObject.SetActive(true);
         winUIScore.GetComponent<Text>().text = GameManager.Get.formatedScore;
     }

@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         Instantiate(deathParticle, transform.position, transform.rotation);
+
         GameManager.Get.playerIsDead = true;
         Destroy(gameObject);
         UIManager.Get.HidePlayerInfos();

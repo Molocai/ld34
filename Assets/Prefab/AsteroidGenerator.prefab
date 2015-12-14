@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.69, y: -0.83, z: 0}
+  m_LocalPosition: {x: 21.37, y: 0, z: 11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473376}
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.13, y: 0, z: 0}
+  m_LocalPosition: {x: -34.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 418790}
@@ -67,15 +67,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fb331bf97782e4690b2e266b831f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 126094, guid: 388ab5aecb72d0b4faf0bfc914a22d42, type: 2}
-  asteroidPopInterval: 3.5
-  maxPopHeight: 40
-  maxPopWidth: 5
+  asteroidPrefab:
+  - {fileID: 126094, guid: 388ab5aecb72d0b4faf0bfc914a22d42, type: 2}
+  - {fileID: 167414, guid: 35676a36c4f7e4949b959ba154692cf5, type: 2}
+  - {fileID: 184948, guid: eae50ad68d3bbbe44af2b1e458532294, type: 2}
+  - {fileID: 158652, guid: 758a0d93a54c9d745a334ac47a6daebd, type: 2}
+  - {fileID: 129100, guid: 452c20041c2409d4786b7cd3d2e2cbd3, type: 2}
+  asteroidPopInterval: 3
+  maxPopHeight: 25
+  maxPopWidth: 10
   destinationPoint: {fileID: 149736}
-  destinationHeight: 40
+  destinationHeight: 25
   straightLine: 0
   minForce: 100
-  maxForce: 1000
+  maxForce: 550
+  minRotationForce: 2
+  maxRotationForce: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
