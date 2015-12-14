@@ -747,6 +747,8 @@ MonoBehaviour:
   initialMoveSpeed: 50
   speedboostFrequency: 3
   boostForce: 10
+  audioPlayerDestruction: {fileID: 8300000, guid: 5efad6a094e77b74f909a132b604ce3f,
+    type: 3}
 --- !u!50 &600471453
 Rigidbody2D:
   serializedVersion: 2
@@ -1140,11 +1142,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400048, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22400048, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11471518, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_Sprite
