@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         if (spaceshipHealth <= 0)
         {
-            Kill();
+            Kill(false);
         }
     }
 
@@ -107,13 +107,15 @@ public class PlayerController : MonoBehaviour
             Win();
     }
 
-    public void Kill()
+    public void Kill(bool nova)
     {
-        Instantiate(deathParticle, transform.position, transform.rotation);
+        if (!nova)
+            Instantiate(deathParticle, transform.position, transform.rotation);
 
         GameManager.Get.playerIsDead = true;
         Destroy(gameObject);
         UIManager.Get.HidePlayerInfos();
+        UIManager.Get.DisplayLoseScreen();
     }
 
     public void Win()

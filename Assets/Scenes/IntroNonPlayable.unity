@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mireille: {fileID: 8300000, guid: 99789d84964496048b615a25d0ba57b1, type: 3}
   Roger: {fileID: 8300000, guid: 1bc55528670696e409f73efa011a61bf, type: 3}
+  PopRoger: {fileID: 8300000, guid: f0fc2e21224855c46b0b942ce0e41db0, type: 3}
   mireilleDialogue: 4
   rogerDialogue: 9
   phaseJeu: 14

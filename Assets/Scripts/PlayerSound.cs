@@ -4,7 +4,10 @@ using System.Collections.Generic;
 
 public class PlayerSound : MonoBehaviour {
 
-	[Header("Sons des alertes")]
+    //[Header("Pop")]
+    //public AudioClip PopRoger;
+
+    [Header("Sons des alertes")]
 	public AudioClip AlerteNiveau1;
 	public AudioClip AlerteNiveau1bis;
 	public AudioClip AlerteNiveau2;
@@ -28,12 +31,13 @@ public class PlayerSound : MonoBehaviour {
 
     [Header("Mort par asteroide")]
     public AudioClip mortParAsteroide;
-
+    
     private AudioSource source;
 
 	// Use this for initialization
 	void Awake () {
 		source = GetComponent<AudioSource> ();
+        //source.PlayOneShot(PopRoger, 1f);
 	}
 	
 	// Update is called once per frame
@@ -43,7 +47,7 @@ public class PlayerSound : MonoBehaviour {
 
     public void SonMortParAsteroid()
     {
-        source.PlayOneShot(mortParAsteroide, 1f);
+        source.PlayOneShot(mortParAsteroide, 0.8f);
     }
 
 	public void Alertes(int spaceshipHealth)
@@ -78,7 +82,7 @@ public class PlayerSound : MonoBehaviour {
 
         LastUsedAsteroidSound = AsteroidSound;
 
-		source.PlayOneShot(AsteroidSound,1f);
+		source.PlayOneShot(AsteroidSound,0.8f);
     }
 
 	public void ReparationSoundAleatoire()
