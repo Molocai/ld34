@@ -4,8 +4,11 @@ using System.Collections;
 public class CinematicSound : MonoBehaviour {
     public AudioClip sonCinematic;
     private AudioSource source;
-   
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Use this for initialization
     void Start () {
