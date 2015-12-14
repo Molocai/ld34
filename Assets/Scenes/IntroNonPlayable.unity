@@ -171,7 +171,7 @@ MonoBehaviour:
   Roger: {fileID: 8300000, guid: 1bc55528670696e409f73efa011a61bf, type: 3}
   mireilleDialogue: 4
   rogerDialogue: 9
-  phaseJeu: 13
+  phaseJeu: 14
   RogerPrefab: {fileID: 160792, guid: 703f290a91386bd4787bf98ed16fb9ed, type: 2}
   RogerPosition: {fileID: 1726498885}
   MireillePrefab: {fileID: 148700, guid: 66eaf9a38b5825c41a4a684d6a5721c7, type: 2}
@@ -423,6 +423,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9719ad3a884571144ab17ad394a971aa, type: 3}
   - {fileID: 8300000, guid: f314229032c9bbb4a90495ea0b7fd414, type: 3}
   - {fileID: 8300000, guid: bfca915a7cfab6d4a8f5466fb2a25299, type: 3}
+  mortParAsteroide: {fileID: 0}
 --- !u!82 &911875724
 AudioSource:
   m_ObjectHideFlags: 0

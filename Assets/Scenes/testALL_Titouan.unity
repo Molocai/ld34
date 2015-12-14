@@ -1810,11 +1810,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400048, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22400048, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11471518, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_Sprite
