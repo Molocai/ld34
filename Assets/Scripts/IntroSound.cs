@@ -19,6 +19,12 @@ public class IntroSound : MonoBehaviour {
     public float rogerDialogue = 4.0f;
     private bool lectureRoger = false;
 
+	public GameObject RogerPrefab;
+	public GameObject RogerPosition;
+
+	public GameObject MireillePrefab;
+	public GameObject MireillePosition;
+
 
     // Use this for initialization
     void Start () {
@@ -38,7 +44,7 @@ public class IntroSound : MonoBehaviour {
             source = GetComponent<AudioSource>();
             source.PlayOneShot(Mireille, 1f);
             lectureMireille = true;
-
+			GameObject dialogue1=(GameObject)Instantiate(MireillePrefab, MireillePosition.transform.position, Quaternion.identity);
 
         }
 
@@ -48,6 +54,7 @@ public class IntroSound : MonoBehaviour {
             source = GetComponent<AudioSource>();
             source.PlayOneShot(Roger, 1f);
             lectureRoger = true;
+			GameObject dialogue2=(GameObject)Instantiate(RogerPrefab, RogerPosition.transform.position, Quaternion.identity);
         }
 
 

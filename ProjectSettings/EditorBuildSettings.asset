@@ -7,3 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/testALL_Titouan.unity
+  - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+  - enabled: 1
+    path: Assets/Scenes/IntroNonPlayable.unity
