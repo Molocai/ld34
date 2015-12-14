@@ -169,9 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mireille: {fileID: 8300000, guid: 99789d84964496048b615a25d0ba57b1, type: 3}
   Roger: {fileID: 8300000, guid: 1bc55528670696e409f73efa011a61bf, type: 3}
-  mireilleDialogue: 5
-  rogerDialogue: 8
-  phaseJeu: 15
+  mireilleDialogue: 4
+  rogerDialogue: 9
+  phaseJeu: 13
   RogerPrefab: {fileID: 160792, guid: 703f290a91386bd4787bf98ed16fb9ed, type: 2}
   RogerPosition: {fileID: 1726498885}
   MireillePrefab: {fileID: 148700, guid: 66eaf9a38b5825c41a4a684d6a5721c7, type: 2}
@@ -686,7 +686,7 @@ Transform:
   - {fileID: 473327318}
   - {fileID: 1769710569}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1508679809
 GameObject:
   m_ObjectHideFlags: 0

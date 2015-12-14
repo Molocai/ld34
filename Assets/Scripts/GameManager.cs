@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour {
     }
     #endregion
 
+    public bool playerIsDead = false;
+    public float score;
+    public string formatedScore = "";
+
     // Events
     #region Events
     public delegate void NewZoneActivated();
@@ -36,6 +40,15 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> zonesOnShip;
 
     private ZONEVAISSEAU lastActivatedZone;
+
+    void Update()
+    {
+        if (!playerIsDead)
+        {
+            score = Time.time;
+            formatedScore = string.Format("{0:00.00}", score);
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
