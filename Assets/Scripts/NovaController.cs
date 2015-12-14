@@ -5,7 +5,7 @@ public class NovaController : MonoBehaviour
 {
 
     public float initialMoveSpeed;
-    public float speedboostFrequency;
+    public float secondsBetweenBoosts;
     public float boostForce;
     public AudioClip audioPlayerDestruction;
 
@@ -20,7 +20,7 @@ public class NovaController : MonoBehaviour
 
         body.AddForce(Vector2.right * initialMoveSpeed);
 
-        StartCoroutine(PushNovaABit(speedboostFrequency));
+        StartCoroutine(PushNovaABit(secondsBetweenBoosts));
     }
 
     IEnumerator PushNovaABit(float waitTime)

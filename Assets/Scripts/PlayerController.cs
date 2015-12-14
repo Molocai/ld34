@@ -116,6 +116,9 @@ public class PlayerController : MonoBehaviour
             if (OnPlayerChangeHealth != null)
                 OnPlayerChangeHealth(spaceshipHealth, spaceshipMaxHealth);
         }
+
+        if (spaceshipHealth >= spaceshipMaxHealth)
+            Win();
     }
 
     public void Kill()
@@ -123,5 +126,11 @@ public class PlayerController : MonoBehaviour
         Instantiate(deathParticle, transform.position, transform.rotation);
         GameManager.Get.playerIsDead = true;
         Destroy(gameObject);
+        UIManager.Get.HidePlayerInfos();
+    }
+
+    public void Win()
+    {
+        UIManager.Get.DisplayWinScreen();
     }
 }

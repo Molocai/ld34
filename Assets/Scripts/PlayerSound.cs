@@ -31,12 +31,12 @@ public class PlayerSound : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		source = GetComponent<AudioSource> ();
-
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	}
+	void Start () {
+        source = GetComponent<AudioSource>();
+    }
 
 
 	public void Alertes(int spaceshipHealth)
