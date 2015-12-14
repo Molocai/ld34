@@ -5,41 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class Cinematic : MonoBehaviour
 {
-    public MovieTexture movTexture;
-    public string IntroNonPlayable;
-    
-    void Start ()
+    //public Animation cinematicSprite;
+    private float currentTime, spriteLenght = 12.1f;
+
+    void Start()
     {
-
-        GetComponent<Renderer>().material.mainTexture = movTexture;
-        movTexture.Play();
-        StartCoroutine("waitForMovieEnd");
+        currentTime = Time.time;
+        //cinematicSprite = GetComponent<Animation>();
+        //StartCoroutine("waitForMovieEnd");
     }
-    public void PlayIntro()
+    void Update()
     {
-        SceneManager.LoadScene(IntroNonPlayable);
-
+        if (Time.time >= currentTime + spriteLenght)
+            PlayIntro();
     }
-
-
-
+    /*
     IEnumerator waitForMovieEnd()
     {
-
-        while (movTexture.isPlaying) // while the movie is playing
+        while (cinematicSprite.isPlaying)
         {
             yield return new WaitForEndOfFrame();
         }
-        // after movie is not playing / has stopped.
         onMovieEnded();
     }
-
     void onMovieEnded()
     {
         Debug.Log("Movie Ended!");
         PlayIntro();
-       // Application.LoadLevel(1);
+    }*/
+    public void PlayIntro()
+    {
+        SceneManager.LoadScene("IntroNonPlayable");
     }
-
-
 }
