@@ -35,9 +35,9 @@ public class RepairZone : MonoBehaviour
             rbCat.isKinematic = true;
 
             StartCoroutine(Wait());
+            hasAlreadyTriggered = true;
         }
 
-        hasAlreadyTriggered = true;
     }
 
     IEnumerator Wait()
