@@ -343,7 +343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11453176, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
       propertyPath: spaceshipHealth
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11482566, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
       propertyPath: PopRoger
