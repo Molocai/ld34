@@ -46,7 +46,7 @@ public class IntroSound : MonoBehaviour {
             source = GetComponent<AudioSource>();
             source.PlayOneShot(Mireille, 1f);
             lectureMireille = true;
-			GameObject dialogue1=(GameObject)Instantiate(MireillePrefab, MireillePosition.transform.position, Quaternion.identity);
+			Instantiate(MireillePrefab, MireillePosition.transform.position, Quaternion.identity);
 
         }
 
@@ -56,7 +56,7 @@ public class IntroSound : MonoBehaviour {
             source = GetComponent<AudioSource>();
             source.PlayOneShot(Roger, 1f);
             lectureRoger = true;
-			GameObject dialogue2=(GameObject)Instantiate(RogerPrefab, RogerPosition.transform.position, Quaternion.identity);
+			Instantiate(RogerPrefab, RogerPosition.transform.position, Quaternion.identity);
         }
 
         if (Time.time > phaseJeu + relativeTime)

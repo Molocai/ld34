@@ -6,13 +6,16 @@ public class UIManager : MonoBehaviour {
 
     [Header("Elements d'interface")]
     public GameObject sliderGameObject;
+    public GameObject scoreTextGameObject;
 
     private Slider spaceshipHealthSlider;
+    private Text scoreText;
     private float w, h;
 
     void Start()
     {
         spaceshipHealthSlider = sliderGameObject.GetComponent<Slider>();
+        scoreText = scoreTextGameObject.GetComponent<Text>();
 
         float sliderValue = (float)PlayerController.Get.spaceshipHealth / (float)PlayerController.Get.spaceshipMaxHealth;
         spaceshipHealthSlider.value = sliderValue;
@@ -25,6 +28,8 @@ public class UIManager : MonoBehaviour {
 
         sliderGameObject.GetComponent<RectTransform>().position = new Vector3(6.0f * w / 7.0f, h / 10.0f, 0.5f);
         sliderGameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(w / 8.0f, h / 15.0f);
+
+        scoreText.text = GameManager.Get.formatedScore;
     }
         void OnEnable()
     {
