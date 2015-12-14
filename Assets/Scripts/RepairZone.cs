@@ -21,6 +21,9 @@ public class RepairZone : MonoBehaviour
     private GameObject particleSparkInstance;
     private GameObject particleSmokeInstance;
 
+    [Header("")]
+    public GameObject repulseur;
+
     private Rigidbody2D rbCat;
 
     public void OnTriggerStay2D(Collider2D collider)
@@ -42,7 +45,6 @@ public class RepairZone : MonoBehaviour
 
     IEnumerator Wait()
     {
-        // TODO: Jouer son réparation
         if (OnNewZoneFixed != null)
             OnNewZoneFixed();
 
@@ -67,5 +69,8 @@ public class RepairZone : MonoBehaviour
             rbCat.isKinematic = false;
         if (GameManager.Get != null)
             GameManager.Get.SelectNewZone();
+
+        if (repulseur != null)
+            repulseur.SetActive(true);
     }
 }

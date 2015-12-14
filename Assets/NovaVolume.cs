@@ -15,6 +15,9 @@ public class NovaVolume : MonoBehaviour
     }
 	void Update ()
     {
+        if (player == null)
+            return;
+
         distPlayer = Mathf.Abs(player.position.x - transform.position.x);
         distOther = Mathf.Abs(otherSource.position.x - transform.position.x);
         distOtherPlayer = Mathf.Abs(otherSource.position.x - player.transform.position.x);

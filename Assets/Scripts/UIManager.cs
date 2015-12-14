@@ -28,10 +28,10 @@ public class UIManager : MonoBehaviour {
     }
         void OnEnable()
     {
-        PlayerController.OnPlayerGetHit += OnPlayerGetHit;
+        PlayerController.OnPlayerChangeHealth += RefreshSlider;
     }
 
-    void OnPlayerGetHit(int life, int max)
+    void RefreshSlider(int life, int max)
     {
         float sliderValue = (float)life / (float)max;
         spaceshipHealthSlider.value = sliderValue;

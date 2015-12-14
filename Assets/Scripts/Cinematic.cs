@@ -3,26 +3,18 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
-public class Cinematic : MonoBehaviour {
-public MovieTexture movTexture;
- public string IntroNonPlayable;
-    // Use this for initialization
-    void Start () {
+public class Cinematic : MonoBehaviour
+{
+    public MovieTexture movTexture;
+    public string IntroNonPlayable;
+    
+    void Start ()
+    {
 
         GetComponent<Renderer>().material.mainTexture = movTexture;
         movTexture.Play();
         StartCoroutine("waitForMovieEnd");
-
-
     }
-	
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
     public void PlayIntro()
     {
         SceneManager.LoadScene(IntroNonPlayable);

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class IntroSound : MonoBehaviour {
@@ -19,26 +20,27 @@ public class IntroSound : MonoBehaviour {
     public float rogerDialogue = 4.0f;
     private bool lectureRoger = false;
 
+    [Header("Temps phase jeu")]
+    public float phaseJeu = 15.0f;
+
 	public GameObject RogerPrefab;
 	public GameObject RogerPosition;
 
 	public GameObject MireillePrefab;
 	public GameObject MireillePosition;
 
+    private float relativeTime;
+
 
     // Use this for initialization
     void Start () {
-        // source = GetComponent<AudioSource>();
-        // source.PlayOneShot(sonIntro, 1f);
-
-       
-
+        relativeTime = Time.time;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Time.time > mireilleDialogue && lectureMireille == false)
+        if (Time.time > mireilleDialogue + relativeTime && lectureMireille == false)
         {
 
             source = GetComponent<AudioSource>();
@@ -48,7 +50,7 @@ public class IntroSound : MonoBehaviour {
 
         }
 
-        if (Time.time > rogerDialogue && lectureRoger == false)
+        if (Time.time > rogerDialogue + relativeTime && lectureRoger == false)
         {
 
             source = GetComponent<AudioSource>();
@@ -57,6 +59,8 @@ public class IntroSound : MonoBehaviour {
 			GameObject dialogue2=(GameObject)Instantiate(RogerPrefab, RogerPosition.transform.position, Quaternion.identity);
         }
 
+        if (Time.time > phaseJeu + relativeTime)
+            SceneManager.LoadScene("testALL_Titouan");
 
     }
 

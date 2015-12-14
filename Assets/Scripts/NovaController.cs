@@ -37,7 +37,7 @@ public class NovaController : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             audioSource.PlayOneShot(audioPlayerDestruction);
-            // TODO: Die
+            PlayerController.Get.Kill();
         }
     }
 }

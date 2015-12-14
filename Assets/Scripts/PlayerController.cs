@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Events
     #region Events
     public delegate void PlayerGetHit(int life, int max);
-    public static event PlayerGetHit OnPlayerGetHit;
+    public static event PlayerGetHit OnPlayerChangeHealth;
     #endregion
 
     private Rigidbody2D body;
@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     [Range(0, 10f)]
     public int spaceshipHealth = 10;
 
+    [Header("Particules")]
+    public GameObject deathParticle;
+
     // Use this for initialization
     void Awake()
     {
@@ -50,7 +53,7 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         GameManager.OnNewZoneActivated += PlayMireilleSound;
-        RepairZone.OnNewZoneFixed += PlayFixingSound;
+        RepairZone.OnNewZoneFixed += FixeZone;
     }
 
     void PlayMireilleSound()
@@ -58,9 +61,10 @@ public class PlayerController : MonoBehaviour
         ps.Alertes(spaceshipHealth);
     }
 
-    void PlayFixingSound()
+    void FixeZone()
     {
         ps.ReparationSoundAleatoire();
+        Heal();
     }
 
     void FixedUpdate()
@@ -89,18 +93,34 @@ public class PlayerController : MonoBehaviour
 
     private void TakeDamage()
     {
-        if (spaceshipHealth - 1 == 0)
-        {
-            // TODO: Die
-        }
+        spaceshipHealth--;
+
+        // Fire event
+        if (OnPlayerChangeHealth != null)
+            OnPlayerChangeHealth(spaceshipHealth, spaceshipMaxHealth);
+
+        if (spaceshipHealth <= 0)
+            Kill();
+    }
+
+    private void Heal()
+    {
+        if (spaceshipHealth == spaceshipMaxHealth)
+            return;
 
         else
         {
-            spaceshipHealth--;
+            spaceshipHealth++;
 
             // Fire event
-            if (OnPlayerGetHit != null)
-                OnPlayerGetHit(spaceshipHealth, spaceshipMaxHealth);
+            if (OnPlayerChangeHealth != null)
+                OnPlayerChangeHealth(spaceshipHealth, spaceshipMaxHealth);
         }
+    }
+
+    public void Kill()
+    {
+        Instantiate(deathParticle, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
