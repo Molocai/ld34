@@ -21,12 +21,7 @@ public class GameManager : MonoBehaviour {
     public bool playerIsDead = false;
     public float score;
     public string formatedScore = "";
-
-    // Events
-    #region Events
-    public delegate void NewZoneActivated();
-    public static event NewZoneActivated OnNewZoneActivated;
-    #endregion
+    private float currentTime;
 
     public enum ZONEVAISSEAU {
         COCKPIT,
@@ -45,13 +40,14 @@ public class GameManager : MonoBehaviour {
     {
         if (!playerIsDead)
         {
-            score = Time.time;
+            score = Time.time - currentTime;
             formatedScore = string.Format("{0:00.00}", score);
         }
     }
 
 	// Use this for initialization
 	void Start () {
+        currentTime = Time.time;
         availableZones = new Dictionary<ZONEVAISSEAU, GameObject>();
 
 	    foreach(GameObject go in zonesOnShip)
@@ -67,8 +63,7 @@ public class GameManager : MonoBehaviour {
     {
         availableZones[zone].SetActive(true);
 
-        if (OnNewZoneActivated != null)
-            OnNewZoneActivated();
+        PlayerController.Get.PlayMireilleSound();
     }
 
     public void DeactivateZone(ZONEVAISSEAU zone)

@@ -26,6 +26,9 @@ public class PlayerSound : MonoBehaviour {
     AudioClip LastUsedRogerSound;
 	AudioClip RogerSound;
 
+    [Header("Mort par asteroide")]
+    public AudioClip mortParAsteroide;
+
     private AudioSource source;
 
 	// Use this for initialization
@@ -38,6 +41,10 @@ public class PlayerSound : MonoBehaviour {
         source = GetComponent<AudioSource>();
     }
 
+    public void SonMortParAsteroid()
+    {
+        source.PlayOneShot(mortParAsteroide, 1f);
+    }
 
 	public void Alertes(int spaceshipHealth)
 	{

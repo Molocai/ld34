@@ -4,13 +4,6 @@ using System.Collections.Generic;
 
 public class RepairZone : MonoBehaviour
 {
-
-    // Events
-    #region Events
-    public delegate void NewZoneFixed();
-    public static event NewZoneFixed OnNewZoneFixed;
-    #endregion
-
     public GameManager.ZONEVAISSEAU zone;
     private bool hasAlreadyTriggered = false;
 
@@ -45,8 +38,7 @@ public class RepairZone : MonoBehaviour
 
     IEnumerator Wait()
     {
-        if (OnNewZoneFixed != null)
-            OnNewZoneFixed();
+        PlayerController.Get.FixeZone();
 
         particleSmokeInstance = (GameObject)Instantiate(particlesSmokePrefab[Random.Range(0, particlesSmokePrefab.Count)], transform.position, transform.rotation);
         particleSmokeInstance.transform.SetParent(transform);

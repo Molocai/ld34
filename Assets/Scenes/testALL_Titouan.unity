@@ -832,10 +832,26 @@ Prefab:
     - target: {fileID: 11453176, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
       propertyPath: deathParticle
       value: 
-      objectReference: {fileID: 155322, guid: 4563fcface747214a90f53e887df271e, type: 2}
+      objectReference: {fileID: 141114, guid: 97363f53447df6e45ac3b065616aed63, type: 2}
     - target: {fileID: 11453176, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
       propertyPath: spaceshipHealth
-      value: 9
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457392, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
+      propertyPath: magnitudeMiaou
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482566, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
+      propertyPath: mortParAsteroide
+      value: 
+      objectReference: {fileID: 8300000, guid: e7822627a58cb93459ca8bec0c63d6ec, type: 3}
+    - target: {fileID: 408698, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 471066, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 725aff878b915294e95bdbfe9c3219ee, type: 2}
@@ -1794,11 +1810,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400048, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400048, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11471518, guid: 57e6c8e3f62374046b07647187cd836f, type: 2}
       propertyPath: m_Sprite
@@ -2131,7 +2147,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479376, guid: f59320e97a2cbca4cb14a43bffd1d05a, type: 2}
       propertyPath: asteroidPopInterval
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11479376, guid: f59320e97a2cbca4cb14a43bffd1d05a, type: 2}
       propertyPath: straightLine
@@ -2172,6 +2188,10 @@ Prefab:
     - target: {fileID: 11479376, guid: f59320e97a2cbca4cb14a43bffd1d05a, type: 2}
       propertyPath: maxRotationForce
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479376, guid: f59320e97a2cbca4cb14a43bffd1d05a, type: 2}
+      propertyPath: maxForce
+      value: 550
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f59320e97a2cbca4cb14a43bffd1d05a, type: 2}

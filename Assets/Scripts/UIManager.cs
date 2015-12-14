@@ -55,12 +55,8 @@ public class UIManager : MonoBehaviour {
 
         scoreText.text = GameManager.Get.formatedScore;
     }
-        void OnEnable()
-    {
-        PlayerController.OnPlayerChangeHealth += RefreshSlider;
-    }
 
-    void RefreshSlider(int life, int max)
+    public void RefreshSlider(int life, int max)
     {
         float sliderValue = (float)life / (float)max;
         spaceshipHealthSlider.value = sliderValue;

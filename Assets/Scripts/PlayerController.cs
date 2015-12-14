@@ -19,12 +19,6 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    // Events
-    #region Events
-    public delegate void PlayerGetHit(int life, int max);
-    public static event PlayerGetHit OnPlayerChangeHealth;
-    #endregion
-
     private Rigidbody2D body;
     public PlayerSound ps;
 
@@ -50,18 +44,12 @@ public class PlayerController : MonoBehaviour
         ps = GetComponent<PlayerSound>();
     }
 
-    void OnEnable()
-    {
-        GameManager.OnNewZoneActivated += PlayMireilleSound;
-        RepairZone.OnNewZoneFixed += FixeZone;
-    }
-
-    void PlayMireilleSound()
+    public void PlayMireilleSound()
     {
         ps.Alertes(spaceshipHealth);
     }
 
-    void FixeZone()
+    public void FixeZone()
     {
         ps.ReparationSoundAleatoire();
         Heal();
@@ -95,12 +83,12 @@ public class PlayerController : MonoBehaviour
     {
         spaceshipHealth--;
 
-        // Fire event
-        if (OnPlayerChangeHealth != null)
-            OnPlayerChangeHealth(spaceshipHealth, spaceshipMaxHealth);
+        UIManager.Get.RefreshSlider(spaceshipHealth, spaceshipMaxHealth);
 
         if (spaceshipHealth <= 0)
+        {
             Kill();
+        }
     }
 
     private void Heal()
@@ -112,9 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             spaceshipHealth++;
 
-            // Fire event
-            if (OnPlayerChangeHealth != null)
-                OnPlayerChangeHealth(spaceshipHealth, spaceshipMaxHealth);
+            UIManager.Get.RefreshSlider(spaceshipHealth, spaceshipMaxHealth);
         }
 
         if (spaceshipHealth >= spaceshipMaxHealth)

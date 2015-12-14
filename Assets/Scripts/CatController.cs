@@ -18,13 +18,13 @@ public class CatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float magnitude = body.velocity.magnitude;
+        //float magnitude = body.velocity.magnitude;
 
-        if (Time.time >= nextMiaou && magnitude >= magnitudeMiaou)
-        {
-            PlayerController.Get.ps.RogerTracte();
-            nextMiaou = Time.time + tempsEntreRogerMiaou;
-        }
+        //if (Time.time >= nextMiaou && magnitude >= magnitudeMiaou)
+        //{
+        //    PlayerController.Get.ps.RogerTracte();
+        //    nextMiaou = Time.time + tempsEntreRogerMiaou;
+        //}
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
